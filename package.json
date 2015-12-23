@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "DEBUG=s3-image-sources node test/test-s3-image-sources.js",
-    "postinstall": "zip ./s3-image-sources.zip index.js image-sources.js node_modules/debug/* node_modules/ms/*"
+    "zip": "zip ./s3-image-sources.zip index.js image-sources.js node_modules/debug/* node_modules/ms/*"
   },
   "repository": {
     "type": "git",
