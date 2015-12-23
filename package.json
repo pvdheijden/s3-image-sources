@@ -1,0 +1,27 @@
+{
+  "name": "s3-image-sources",
+  "version": "0.1.0",
+  "description": "AWS lambda function to create JSON-formated list of images in a s3 bucket",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "DEBUG=s3-image-sources node test/test-s3-image-sources.js",
+    "postinstall": "zip ./s3-image-sources.zip index.js image-sources.js node_modules/debug/* node_modules/ms/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pvdheijden/s3-image-sources.git"
+  },
+  "author": "pim <pim@zifzaf.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pvdheijden/s3-image-sources/issues"
+  },
+  "homepage": "https://github.com/pvdheijden/s3-image-sources#readme",
+  "dependencies": {
+    "aws-sdk": "^2.2.26",
+    "debug": "^2.2.0"
+  }
+}

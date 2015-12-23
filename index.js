@@ -7,5 +7,5 @@ exports.handler = function(event, context) {
     var prefix = 'assets';
     var object = 'image-sources.json';
 
-    require('./image-sources.js')(bucket, prefix, object, context.done);
+    require('./s3-image-sources.js')(bucket, prefix, object, context.done);
 };

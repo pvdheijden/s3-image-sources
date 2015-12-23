@@ -1,6 +1,7 @@
 'use strict';
 
-var debug = require('debug')('image-sources');
+var util = require('util');
+var debug = require('debug')('s3-image-sources');
 var AWS = require('aws-sdk');
 
 module.exports = function(bucket, prefix, object, callback) {
@@ -17,13 +18,13 @@ module.exports = function(bucket, prefix, object, callback) {
             return callback(err);
         }
 
-        debug('%s/%s bucket folder objects: %j', bucket, prefix, objects);
+        debug('%s/%s bucket folder objects: %s\n', bucket, prefix, util.inspect(objects));
 
         var imageSources = objects.Contents.map(function(object) {
             return object.Key;
         });
 
-        debug('%s object: %j', object, imageSources);
+        debug('%s object:\n%s', object, util.inspect(imageSources));
 
         s3.putObject({
             Bucket: bucket,
