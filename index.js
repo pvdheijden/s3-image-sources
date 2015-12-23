@@ -1,9 +1,6 @@
 'use strict';
 
 var AWS = require('aws-sdk');
-AWS.config.update({
-    region: 'eu-west-1'
-});
 
 exports.handler = function(event, context) {
     var bucket = event.Records[0].s3.bucket.name;
