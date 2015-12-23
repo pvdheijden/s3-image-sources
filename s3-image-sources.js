@@ -1,6 +1,7 @@
 'use strict';
 
 var util = require('util');
+var path = require('path');
 var debug = require('debug')('s3-image-sources');
 var AWS = require('aws-sdk');
 
@@ -22,6 +23,8 @@ module.exports = function(bucket, prefix, object, callback) {
 
         var imageSources = objects.Contents.map(function(object) {
             return object.Key;
+        }).filter(function(src) {
+            return /^\.\b(jpg|jpeg|png|gif)\b$/im.test(path.extname(src));
         });
 
         debug('%s object:\n%s', object, util.inspect(imageSources));
